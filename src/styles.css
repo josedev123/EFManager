@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+body{font-family: 'Roboto', sans-serif !important;
+}
+body a:hover{text-decoration: none;}
+.header{    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);height: 60px;align-items: center;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,67bfb9+100 */
+background: #1e5799; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #1e5799 0%, #67bfb9 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #1e5799 0%,#67bfb9 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #1e5799 0%,#67bfb9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#67bfb9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+padding: 10px; 
+
+display: flex;
+
+}
+
+.panel-toggle-button{float: left;
+
+}
+
+.main-content{padding-top: 60px;padding-left:250px;transition:all 300ms ease;}
+
+.sidenav{position: fixed;left:0;top:0;bottom:0;width: 250px;padding-top: 60px;color:#fff;background: #1E5799;transition:all 300ms ease;}
+
+.panel-toggle-button{color:#fff;padding: 15px 10px 10px;cursor: pointer;}
+.logo{color:#fff;font-size: 30px;margin:0px 20px}
+.profile-button{background: none;border:0;color:#fff;margin:10px;}
+
+.sidenav ul{margin: 0;padding:0;list-style: none;}
+.sidenav ul a{display: block;padding:15px 10px;border-bottom: 1px solid rgba(255,255,255,0.3);color:#fff}
+
+
+.side-nav-close .sidenav{width: 0; overflow: hidden;}
+.side-nav-close .main-content{padding-left: 0;}
+
+.link-with-icon{  display: inline-flex;
+    vertical-align: middle;}

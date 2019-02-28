@@ -1,0 +1,3 @@
+<ul>
+  <li *ngFor="let item of facilities | async">{{item.name}}, <a routerLink="/facilities/{{item.id}}">Edit</a> </li>
+</ul>
