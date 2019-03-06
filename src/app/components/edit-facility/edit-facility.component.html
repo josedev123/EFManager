@@ -5,4 +5,33 @@
 </p>
 
 
+<div class="card">
+  <div class="card-header">
+    Edit Facility
+  </div>
+  <div class="card-body">
+    <form #facilityForm="ngForm" (ngSubmit)="onSubmit(facilityForm)">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input 
+              type="text"
+              class="form-control" 
+              name="name" 
+              #name="ngModel" 
+              [(ngModel)]="facility.name"
+              [ngClass]="{'is-invalid': name.errors && name.touched}"
+              minlength="2" 
+              required
+            >
+    
+            <div [hidden]="!name.errors?.required" class="invalid-feedback">Name required</div>
+            <div [hidden]="!name.errors?.minlength" class="invalid-feedback">Must be at least 2 charactors</div>
+          </div>
+
+                <input type="submit" value="Submit" class="btn btn-primary btn-block">
+    </form>
+  </div>
+</div>
+
+
 {{ facility | json }}

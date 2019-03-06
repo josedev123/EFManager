@@ -46,9 +46,8 @@ export class FacilitiesService {
     return this.facility;
   }
 
-
-  updateClient(facility: Facility) {
-    this.facilityDoc = this.afs.doc(`clients/${facility.id}`);
+  updateFacility(facility: Facility) {
+    this.facilityDoc = this.afs.doc(`facilities/${facility.id}`);
     this.facilityDoc.update(facility);
   }
 

@@ -37,4 +37,20 @@ export class EditFacilityComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  onSubmit({value, valid}: {value: Facility, valid: boolean}) {
+    if (!valid) {
+      this.flashMessage.show('Please fill out the form correctly', {
+        cssClass: 'alert-danger', timeout: 4000
+      });
+    } else {
+      // add id to client
+      value.id = this.id;
+      // update client
+      this.facilitiesService.updateFacility(value);
+      this.flashMessage.show('Facility updated', {
+        cssClass: 'alert-success', timeout: 4000
+      });
+     this.router.navigate(['/facilities/' + this.id]);
+    }
+  }
 }
