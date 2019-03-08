@@ -19,6 +19,15 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { MatIconModule } from '@angular/material/icon';
 import { FacilitiesComponent } from './components/facilities/facilities.component';
 import { EditFacilityComponent } from './components/edit-facility/edit-facility.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatFormFieldModule, MatRippleModule, MatCheckboxModule, MatInputModule, MatNativeDateModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
+
+import { EventsComponent } from './components/events/events.component';
+import { EditEventComponent } from './components/edit-event/edit-event.component';
+import { AddEventComponent } from './components/add-event/add-event.component';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -28,9 +37,13 @@ import { EditFacilityComponent } from './components/edit-facility/edit-facility.
     DashboardComponent,
     FacilitiesComponent,
     EditFacilityComponent,
+    EventsComponent,
+    EditEventComponent,
+    AddEventComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
     NgbModule.forRoot(),
@@ -38,9 +51,12 @@ import { EditFacilityComponent } from './components/edit-facility/edit-facility.
     AngularFirestoreModule,
     AngularFireAuthModule,
     FlashMessagesModule.forRoot(),
-    MatIconModule
+    MatIconModule,
+    MatRippleModule, MatCheckboxModule, MatInputModule, MatFormFieldModule, MatSelectModule, MatDatepickerModule,
+    MatNativeDateModule,
+    NgxMaterialTimepickerModule.forRoot(),
   ],
-  providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} }, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
 body{font-family: 'Roboto', sans-serif !important;
 }
 body a:hover{text-decoration: none;}
@@ -43,3 +47,12 @@ display: flex;
 
 .link-with-icon{  display: inline-flex;
     vertical-align: middle;}
+
+    .full-width-form {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .full-width-form > * {
+        width: 100%;
+      }

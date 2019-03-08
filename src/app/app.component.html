@@ -24,9 +24,11 @@
 
 <ul class="main-nav">
 
-  <li><a [routerLink]="['/']" routerLinkActive="router-link-active" >Dashboard</a></li>
-  <li><a href="">Events</a></li>
-  <li><a [routerLink]="['/facilities']" routerLinkActive="router-link-active" >Facilities</a></li>
+  <li>
+    <a matRipple [routerLink]="['/']" routerLinkActive="router-link-active" >Dashboard</a>
+</li>
+  <li><a matRipple href="">Events</a></li>
+  <li><a matRipple [routerLink]="['/facilities']" routerLinkActive="router-link-active" >Facilities</a></li>
 
 </ul>
 
@@ -43,7 +45,3 @@
 </div>
 
 </main>
-
-
-
-

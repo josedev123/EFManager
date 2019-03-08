@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-6">
+      <a routerLink="/" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back to Dashboard
+      </a>
+    </div>
+    <div class="col-md-6">
+  
+    </div>
+  </div>
+
+  <div class="card">
+      <div class="card-header">
+        Add Client
+      </div>
+      <div class="card-body">
+        <form #eventForm="ngForm" (ngSubmit)="onSubmit(eventForm)" class="full-width-form">
+            <mat-form-field>
+                <input matInput placeholder="Event Name" [(ngModel)]="event.name" name="name">
+            </mat-form-field>
+            <mat-form-field>
+                  <mat-select placeholder="Location" [(value)]="event.location">
+                      <mat-option *ngFor="let c of facilities$ | async" [value]="c.id">
+                        {{c.name}}
+                      </mat-option>
+                    </mat-select>     
+            </mat-form-field>
+
+
+              <input [ngxTimepicker]="picker">
+<ngx-material-timepicker #picker></ngx-material-timepicker>
+        </form>
+      </div>
+    </div>
+    
