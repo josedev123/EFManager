@@ -6,5 +6,5 @@ export interface Event {
     date?: Date;
     time?: string;
     cost?: string;
-    group?: Array<string>;
+    group?: Array<any>;
 }

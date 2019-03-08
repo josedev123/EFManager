@@ -22,8 +22,13 @@ export class AddEventComponent implements OnInit {
     date: null,
     time: '',
     cost: '',
-    group: [],
+    group: [
+      { name: 'Adults', selected: false, id: 1 },
+      { name: 'Children', selected: false, id: 2 },
+      { name: 'Whole Family', selected: false, id: 3 }
+    ],
 };
+date = new Date();
 
 facilities$: Observable<Facility[]>;
 value;
@@ -38,7 +43,11 @@ value;
     ngOnInit() {
     }
 
-    onSubmit({value, valid}: {value: Event, valid: boolean}) {
+    onSubm() {
+      console.log('sdfdfg');
+    }
+
+    onSubmit({value, valid}: {value: any, valid: boolean}) {
       if (!valid) {
         // show error
         this.flashMessage.show('Please fill out the from correctly', {
@@ -46,14 +55,27 @@ value;
         });
 
       } else {
+
+        this.event.id = null;
+        this.event.name = value.name;
+        this.event.location = value.location;
+        this.event.date = value.date;
+        this.event.time = value.time;
+        this.event.details = value.details;
+        this.event.group[0].selected = value.g0;
+        this.event.group[1].selected = value.g1;
+        this.event.group[2].selected = value.g2;
+        console.log(value);
+        console.log(this.event);
+
         // Add new Event
-        this.eventService.newEvent(value);
+        this.eventService.newEvent(this.event);
         // show message
         this.flashMessage.show('New event added', {
           cssClass: 'alert-success', timeout: 4000
         });
         // redirect to dashboard
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
       }
     }
 
