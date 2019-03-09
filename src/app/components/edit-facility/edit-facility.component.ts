@@ -29,7 +29,6 @@ export class EditFacilityComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
-    console.log(this.id);
     this.subscription = this.facilitiesService.getFacility(this.id).subscribe(facility => this.facility = facility);
   }
 

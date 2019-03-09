@@ -16,11 +16,12 @@ export class EventsComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   displayedColumns: string[] = ['date', 'name', 'location', 'edit'];
   
-  
-  constructor(private eventsService: EventsService, private facilitiesService: FacilitiesService) { }
+  constructor(private eventsService: EventsService, private facilitiesService: FacilitiesService) {
+    this.facilities = this.facilitiesService.getFacilities().subscribe(facilities => this.facilities = facilities);
+
+   }
 
   ngOnInit() {
-    this.facilities = this.facilitiesService.getFacilities().subscribe(facilities => this.facilities = facilities);
     this.subscription = this.eventsService.getEvents().subscribe(events => {
       this.eventsList = events.map(eventItem => {
         return {

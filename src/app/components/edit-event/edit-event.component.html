@@ -58,15 +58,3 @@
 </div>
 
 <button (click)="onDeleteClick()" class="btn btn-danger">Delete</button>
-<mat-form-field>
-  <input matInput
-         name="start_time"
-         #start_time="ngModel"
-         [matDatepicker]="startDate"
-         [min]="minDate"
-         date="true"
-         [(ngModel)]="date"
-         placeholder="Choose a date">
-  <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
-  <mat-datepicker [startView]="dateStart" #startDate></mat-datepicker>
-</mat-form-field>

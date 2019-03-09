@@ -72,8 +72,6 @@ facilities$: Observable<Facility[]>;
       this.event.group[0].selected = value.g0;
       this.event.group[1].selected = value.g1;
       this.event.group[2].selected = value.g2;
-      console.log(value);
-      console.log(this.event);
 
       // Add new Event
       this.eventService.updateEvent(this.event);
