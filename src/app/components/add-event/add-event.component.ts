@@ -43,10 +43,6 @@ value;
     ngOnInit() {
     }
 
-    onSubm() {
-      console.log('sdfdfg');
-    }
-
     onSubmit({value, valid}: {value: any, valid: boolean}) {
       if (!valid) {
         // show error

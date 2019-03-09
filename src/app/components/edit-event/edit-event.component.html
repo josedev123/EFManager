@@ -1,3 +1,60 @@
-<p>
-  edit-event works!
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/events/" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back to Events
+    </a>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Edit Event
+  </div>
+  <div class="card-body">
+    <form #eventForm="ngForm" (ngSubmit)="onSubmit(eventForm)" class="full-width-form">
+      <mat-form-field>
+        <input matInput placeholder="Event Name" [(ngModel)]="event.name" name="name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Location" [(ngModel)]="event.location" name="location">
+          <mat-option *ngFor="let c of facilities$ | async" [value]="c.id">
+            {{c.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+          <textarea matInput [(ngModel)]="event.details" placeholder="Details" name="details"></textarea>
+        </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Date</mat-label>
+        <input [(ngModel)]="event.date" matInput [matDatepicker]="myPicker" placeholder="date" name="date">
+        <mat-datepicker-toggle matSuffix [for]="myPicker"></mat-datepicker-toggle>
+        <mat-datepicker #myPicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Time</mat-label>
+        <input matInput [ngxTimepicker]="tpicker" [(ngModel)]="event.time" name="time">
+        <ngx-material-timepicker #tpicker></ngx-material-timepicker>
+      </mat-form-field>
+        <div>
+            <mat-checkbox [(ngModel)]="event.group[0].selected" name="g0">Adults</mat-checkbox>
+            <mat-checkbox [(ngModel)]="event.group[1].selected" name="g1">Children</mat-checkbox>
+            <mat-checkbox [(ngModel)]="event.group[2].selected" name="g2">Whole Family</mat-checkbox>
+        </div>
+
+        <mat-form-field>
+            <input matInput placeholder="Cost" [(ngModel)]="event.cost" name="cost">
+          </mat-form-field>
+        
+      <input type="submit" value="Submit" class="btn btn-primary btn-block">
+
+    </form>
+  </div>
+</div>
+
+<button (click)="onDeleteClick()" class="btn btn-danger">Delete</button>

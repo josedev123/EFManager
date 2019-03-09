@@ -54,8 +54,8 @@ export class EventsService {
     this.eventDoc.update(event);
   }
 
-  deleteClient(event: Event) {
-    this.eventDoc = this.afs.doc(`clients/${event.id}`);
+  deleteEvent(id: string) {
+    this.eventDoc = this.afs.doc(`events/${id}`);
     this.eventDoc.delete();
   }
 

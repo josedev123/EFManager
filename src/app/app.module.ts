@@ -22,6 +22,7 @@ import { EditFacilityComponent } from './components/edit-facility/edit-facility.
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule, MatRippleModule, MatCheckboxModule, MatInputModule, MatNativeDateModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
 
 import { EventsComponent } from './components/events/events.component';
 import { EditEventComponent } from './components/edit-event/edit-event.component';
@@ -53,7 +54,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     FlashMessagesModule.forRoot(),
     MatIconModule,
     MatRippleModule, MatCheckboxModule, MatInputModule, MatFormFieldModule, MatSelectModule, MatDatepickerModule,
-    MatNativeDateModule,
+    MatNativeDateModule, MatTableModule,
     NgxMaterialTimepickerModule.forRoot(),
   ],
   providers: [{ provide: FirestoreSettingsToken, useValue: {} }, MatDatepickerModule],
