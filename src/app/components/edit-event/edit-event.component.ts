@@ -15,6 +15,7 @@ import { FacilitiesService } from 'src/app/services/facilities.service';
 })
 export class EditEventComponent implements OnInit {
   id: string;
+  dt: any;
   event: Event = {
     id: '',
     name: '',
@@ -31,7 +32,7 @@ export class EditEventComponent implements OnInit {
   }
 
   date = new Date();
-
+  planModel: any = {start_time: new Date() };
 facilities$: Observable<Facility[]>;
 
   constructor(    
@@ -47,7 +48,11 @@ facilities$: Observable<Facility[]>;
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     // Get client
-    this.eventService.getEvent(this.id).subscribe(event => this.event = event);
+    this.eventService.getEvent(this.id).subscribe(event => { 
+      this.event = event; 
+      this.dt = this.event.date;
+      this.date = new Date(this.dt.seconds*1000);
+    });
   }
 
   onSubmit({value, valid}: {value: any, valid: boolean}) {
@@ -71,7 +76,7 @@ facilities$: Observable<Facility[]>;
       console.log(this.event);
 
       // Add new Event
-      this.eventService.newEvent(this.event);
+      this.eventService.updateEvent(this.event);
       // show message
       this.flashMessage.show('Event Updated', {
         cssClass: 'alert-success', timeout: 4000
